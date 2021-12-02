@@ -1,0 +1,72 @@
+/* INVESTORS PAGE */
+
+.investors-two {
+  padding: 5%;
+
+  h2 {
+    margin-bottom: 3rem;
+  }
+}
+
+.investors-three {
+  padding: 10%;
+  background-color: #fff;
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .table {
+    &:first-of-type {
+      margin-bottom: 8rem;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    tr {
+      @include flex-between;
+      border-bottom: 1px solid $black;
+    }
+
+    th,
+    td {
+      padding: 1rem 0;
+    }
+
+    th.h4 {
+      padding-right: 2rem;
+      margin-bottom: 0;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    td {
+      a {
+        color: $spice;
+
+        &:hover {
+          color: $stone;
+        }
+      }
+    }
+
+    .xl {
+      flex-basis: 24%;
+    }
+
+    .lg {
+      flex-basis: 20%;
+    }
+
+    .md {
+      flex-basis: 16%;
+    }
+
+    .sm {
+      flex-basis: 12%;
+    }
+  }
+}

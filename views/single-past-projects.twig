@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <article class="single post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+    <div class="work-slider slick">
+      {% for image in post.meta('past_gallery') %}
+          <img src="{{ Image(image) | resize(1250, 1000, true) }}" />
+      {% endfor %}
+    </div>
+
+  </article>
+
+{% endblock %}

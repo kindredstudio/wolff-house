@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <section class="work-archive flex-wrap">
+    {% for post in posts %}
+      {% include ['components/work-preview.twig'] %}
+    {% endfor %}
+  </section>
+{% endblock %}

@@ -1,0 +1,27 @@
+<footer class="site-footer section-wrap">
+
+    <a class="stamp" href="{{ site.url }}"><img src="{{theme.link}}/assets/images/logo-stamp.png" alt=""></a>
+
+    <div class="info">
+      <div class="column">
+        <h4>Reach Out</h4>
+        <p>{{ options.left_text }}</p>
+        <p><a href="mailto:{{ options.email }}" target="_blank">{{ options.email }}</a></p>
+        <p>{{ options.phone }}</p>
+      </div>
+      <div class="column">
+        <h4>Follow Along</h4>
+        <p>{{ options.right_text }}</p>
+        <p><a href="http://instagram.com/{{ options.instagram }}" target="_blank">{% include ['components/icon-instagram.twig'] %}&commat;{{ options.instagram }}</a></p>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <h4>Subscribe</h4>
+      <p>{{ options.bottom_text }}</p>
+      {% filter shortcodes %}
+        [mc4wp_form id="95"]
+      {% endfilter %}
+    </div>
+
+</footer>

@@ -1,0 +1,162 @@
+// hamburger
+
+.mm-trigger {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 25px;
+  height: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: all 500ms ease;
+
+  span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $white;
+    border-radius: 1px;
+    opacity: 1;
+    transform: rotate(0deg);
+    transform-origin: left center;
+    transition: all 250ms ease;
+
+    &:nth-child(2) {
+      top: 6px;
+    }
+
+    &:nth-child(3) {
+      top: 12px;
+    }
+  }
+}
+
+// mobile menu
+
+.mm-overlay {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: none;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  background-color: $spice;
+
+  .mm-inner {
+    padding: 3.5rem 4.25rem;
+    text-align: center;
+  }
+
+  .mm-close {
+    position: absolute;
+    top: 4.5%;
+    right: 5%;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transform: rotate(0deg);
+    transition: all 500ms ease;
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 1px;
+      border: 0.05rem solid $white;
+      background: $white;
+      border-radius: 1px;
+      opacity: 1;
+      transform: rotate(0deg);
+      transform-origin: left center;
+      transition: all 250ms ease;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 5px;
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        top: 18px;
+        left: 5px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .site-nav {
+    margin-top: 8rem;
+    font-family: $font_second;
+    font-size: 1.3rem;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.01em $smoke;
+    -webkit-font-smoothing: antialiased;
+
+    li {
+      position: relative;
+      margin-bottom: 2rem;
+
+      &:hover {
+        &:before {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          border-left: 1px solid $smoke;
+          margin-left: -2rem;
+          content: '';
+        }
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: rgba(249,249,249,0.6);
+
+      &:hover {
+        color: $smoke;
+      }
+    }
+  }
+
+  hr {
+    max-width: 250px;
+    margin: 4rem auto;
+  }
+
+  .sidebar-footer {
+    color: $smoke;
+
+    .contact {
+      margin-bottom: 2rem;
+    }
+
+    p {
+      font-family: $font_second;
+      font-size: 1.2rem;
+    }
+
+    a {
+      color: $smoke;
+
+      &:hover {
+        color: $stone;
+      }
+    }
+  }
+}

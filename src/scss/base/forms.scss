@@ -1,0 +1,132 @@
+form {
+  margin: 0;
+}
+
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+input,
+textarea {
+  border: 1px solid $black;
+  background: transparent;
+  color: $color_text;
+
+  @include placeholder {
+    color: $color_text;
+    font-family: $font_main;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+}
+
+.caldera-grid {
+  form {
+    @include flex-between;
+    align-items: flex-start;
+  }
+
+  .row {
+    width: 100%;
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .last_row {
+    margin-left: 1.5rem;
+
+    .form-group {
+      textarea {
+        height: 225px;
+      }
+
+      &:first-of-type {
+        textarea {
+          height: 75px;
+        }
+      }
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding-left: 0.75rem;
+    border: 1px solid $black;
+    background: transparent;
+    color: $color_text;
+
+    @include placeholder {
+      color: $color_text;
+    }
+  }
+
+  textarea {
+    height: 180px;
+    padding-top: 0.75rem;
+  }
+
+  input {
+    height: 30px;
+  }
+
+  input[type='submit'] {
+    border: none;
+    font-family: $font_second;
+    font-size: 1rem;
+    letter-spacing: 0.125em;
+    text-transform: uppercase;
+    -webkit-text-stroke: 0.025em $black;
+    -webkit-font-smoothing: antialiased;
+    text-align: right;
+  }
+}
+
+input,
+textarea,
+select {
+  max-width: 100%;
+  border-radius: 0;
+
+  &[disabled] {
+    border-color: $color_disabled-border;
+    background-color: $color_disabled;
+    cursor: default;
+  }
+}
+
+button,
+input[type='submit'],
+label[for] {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+// Force option color (affects IE only)
+option {
+  background-color: $color_body;
+  color: $color_text;
+}
+
+.input-error {
+  border-color: $color_error;
+  background-color: $color_error-bg;
+  color: $color_text;
+}

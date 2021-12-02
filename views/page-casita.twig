@@ -1,0 +1,31 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+  <section class="casita-one section-wrap" style="background:linear-gradient(rgba(249, 249, 249, 0.75), rgba(249, 249, 249, 0.75)),url({{ Image(post.meta('casita_banner')).src }}) no-repeat center center;">
+    <img class="logo" src="{{theme.link}}/assets/images/casita-logo.png" alt="logo">
+  </section>
+
+  <section class="casita-two flex">
+    <div class="column">
+      <div class="inner-wrap">
+        <h2>{{ post.meta('casita_heading') }}</h2>
+        <h1>{{ post.meta('casita_text1') }}</h1>
+        <p>{{ post.meta('casita_text2') }}</p>
+        <div class="book">
+          <a href="{{ post.meta('casita_url') }}" target="_blank">Bo<br />ok</a><img src="{{theme.link}}/assets/images/arrow-black.png" alt="arrow">
+        </div>
+
+        <div class="stamp">
+          <img class="stamp" src="{{theme.link}}/assets/images/casita-stamp.png" alt="logo">
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      {% for image in post.meta('casita_gallery') %}
+          <img src="{{ Image(image) }}" />
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

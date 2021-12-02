@@ -1,0 +1,58 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+  <div class="front-page">
+
+    <div class="titlefade">
+      <img src="{{theme.link}}/assets/images/logo-dark.png" alt="logo">
+    </div>
+
+    <section class="home-one">
+      <img src="{{ Image(post.meta('home_banner')).src | resize(1875, 1500, true)}}" />
+    </section>
+
+    <section class="home-two section-wrap">
+      <div class="inner-wrap">
+        <img class="monogram" src="{{theme.link}}/assets/images/logo-monogram.png" alt="logo">
+        <h1>{{ post.meta('home_tagline') }}</h1>
+      </div>
+    </section>
+
+    <section class="home-three">
+      <div class="flex-between">
+        <div class="column">
+          <h2>{{ post.meta('home_heading1') }}</h2>
+          <div class="rte">{{ post.meta('home_text1') }}</div>
+          <a href="{{ site.url }}/past-projects/" class="button button-primary">Past Work</a>
+        </div>
+        <div class="column">
+          <img src="{{ Image(post.meta('home_image1')).src | resize(1250, 2000, true) }}" />
+        </div>
+      </div>
+    </section>
+
+    <section class="home-four">
+      <div class="flex-between">
+        <div class="column">
+          <img src="{{ Image(post.meta('home_image2')).src | resize(1250, 2000, true) }}" />
+        </div>
+        <div class="column">
+          <h2>{{ post.meta('home_heading2') }}</h2>
+          <div class="rte">{{ post.meta('home_text2') }}</div>
+          <a href="{{ site.url }}/current-projects/" class="button button-primary">In the Works</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-five section-wrap" style="background:linear-gradient(rgba(249, 249, 249, 0.75), rgba(249, 249, 249, 0.75)),url({{ Image(post.meta('home_image3')).src }}) no-repeat center center;">
+      <div class="inner-wrap">
+        <img class="monogram" src="{{theme.link}}/assets/images/casita-secondary.png" alt="logo">
+        <h3>{{ post.meta('home_text3') }}</h3>
+        <a class="button button-secondary" href="{{ post.meta('home_button1') }}" target="_blank">Book now</a>
+      </div>
+    </section>
+
+  </div>
+
+{% endblock %}

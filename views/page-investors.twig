@@ -1,0 +1,96 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+  <section class="investors-one">
+    <img src="{{ Image(post.meta('investor_image')).src }}" />
+  </section>
+
+  <section class="investors-two">
+    <h2>{{ post.meta('investor_h2') }}</h2>
+    <div class="rte">{{ post.meta('investor_text') }}</div>
+    <a href="{{ site.url }}/contact/" class="button button-primary">Get in touch</a>
+  </section>
+
+  <section class="investors-three">
+    <div class="wrap">
+
+      <div class="table">
+        <h1>Completed Projects</h1>
+
+        <table border="0">
+          <thead>
+            <tr>
+              <th class="xl h4">Address</th>
+              <th class="lg h4">Timeframe</th>
+              <th class="md h4">Cost</th>
+              <th class="md h4">Sale Price</th>
+              <th class="sm h4">ROI</th>
+              <th class="sm h4">Annualized Investor ROI</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for item in post.meta('investors_table') %}
+              <tr>
+                <td class="xl">
+                  {% if item.pdf %}
+                    <a href="{{ item.pdf }}" target="_blank">{{ item.address }}</a>
+
+                  {% else %}
+                    {{ item.address }}
+
+                  {% endif %}
+                </td>
+                <td class="lg">{{ item.timeframe }}</td>
+                <td class="md">{{ item.cost }}</td>
+                <td class="md">{{ item.price }}</td>
+                <td class="sm">{{ item.roi }}</td>
+                <td class="sm">{{ item.investor_roi }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table">
+        <h1>Currently Under Construction</h1>
+
+        <table border="0">
+          <thead>
+            <tr>
+              <th class="xl h4">Address</th>
+              <th class="lg h4">Projected Timeframe</th>
+              <th class="md h4">Projected Cost</th>
+              <th class="md h4">Projected Sale Price</th>
+              <th class="sm h4">Projected ROI</th>
+              <th class="sm h4">Projected Annualized Investor ROI</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for item in post.meta('construction_table') %}
+              <tr>
+                <td class="xl">
+                  {% if item.pdf %}
+                    <a href="{{ item.pdf }}" target="_blank">{{ item.address }}</a>
+
+                  {% else %}
+                    {{ item.address }}
+                    
+                  {% endif %}
+                </td>
+                <td class="lg">{{ item.timeframe }}</td>
+                <td class="md">{{ item.cost }}</td>
+                <td class="md">{{ item.price }}</td>
+                <td class="sm">{{ item.roi }}</td>
+                <td class="sm">{{ item.investor_roi }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

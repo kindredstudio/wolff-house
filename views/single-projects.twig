@@ -1,0 +1,41 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <article class="single post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+    <section class="work-one flex-between">
+      <div class="column">
+        <h2>{{ post.meta('work_address') }}</h2>
+        <h1>{{ post.meta('work_street') }}</h1>
+        <div class="rte">
+          {{ post.meta('work_details') }}
+        </div>
+
+        <div>
+          <a class="button button-primary" href="{{ post.meta('work_url') }}" target="_blank">MLS Listing</a>
+        </div>
+
+        <div>
+          <a class="button button-primary" href="" target="_blank">Get updates</a>
+        </div>
+      </div>
+
+      <div class="column">
+        <img class="feat-img" src="{{post.thumbnail.src | resize(625, 500, true)}}"/>
+
+        {% include ['components/work-map.twig'] %}
+      </div>
+    </section>
+
+    <section class="work-two">
+      <div class="work-slider slick">
+        {% for image in post.meta('work_gallery') %}
+            <img src="{{ Image(image) | resize(1250, 1000, true) }}" />
+        {% endfor %}
+      </div>
+    </section>
+
+  </article>
+
+{% endblock %}

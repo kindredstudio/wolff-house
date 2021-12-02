@@ -1,0 +1,17 @@
+<article class="preview preview-{{ post.post_type }}" id="preview-{{ post.ID }}">
+  {% block content %}
+
+      {% if post.get_thumbnail %}
+          <figure>
+            <div class="overlay">
+              <img src="{{ post.thumbnail.src | resize(625, 500, true) }}"/>
+            </div>
+
+            <figcaption>
+            <a href="{{ post.link }}">  <h2 class="post-title">{{ post.title }}</h2></a>
+            </figcaption>
+          </figure>
+      {% endif %}
+
+  {% endblock %}
+</article>

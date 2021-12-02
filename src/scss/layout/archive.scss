@@ -1,0 +1,72 @@
+/* WORK ARCHIVES */
+
+.work-archive {
+  article {
+    position: relative;
+    flex-basis: 50%;
+
+    @include media-query($tablet-lg) {
+      width: 100%;
+    }
+  }
+
+  .overlay {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $smoke;
+      content: '';
+      opacity: 0;
+      transition: all 300ms ease;
+
+      @include media-query($tablet-lg) {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  figure {
+    &:hover {
+      .overlay:after {
+        opacity: 0.5;
+      }
+
+      figcaption {
+        opacity: 1;
+      }
+    }
+
+    @include media-query($tablet-lg) {
+      figcaption {
+        opacity: 1;
+      }
+    }
+  }
+
+  figcaption {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    text-align: center;
+    transform: translateY(-50%);
+    transition: all 300ms ease;
+
+    a {
+      display: inline-block;
+      padding: 4rem 5rem;
+      background-color: $smoke;
+      color: $spice;
+    }
+  }
+
+  @include media-query($tablet-lg) {
+    flex-direction: column;
+  }
+}

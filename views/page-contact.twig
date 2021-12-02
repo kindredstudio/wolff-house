@@ -1,0 +1,54 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+  <section class="contact-one">
+    <div class="flex-between">
+      {% include ['components/contact-map.twig'] %}
+
+      <div class="info">
+        <div class="inner-wrap">
+          <h1>Contact Us</h1>
+          <h4>Location</h4>
+          <h3>{{ post.meta('location') }}</h3>
+          <p>{{ post.meta('office_info') }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-two">
+    <div class="flex-between">
+      <div class="half">
+        <div class="info">
+          <div class="column">
+            <h4>Reach Out</h4>
+            <p>{{ options.left_text }}</p>
+            <p><a href="mailto:{{ options.email }}" target="_blank">{{ options.email }}</p>
+            <p>{{ options.phone }}</p>
+          </div>
+          <div class="column">
+            <h4>Follow Along</h4>
+            <p>{{ options.right_text }}</p>
+            <p><a href="http://instagram.com/{{ options.instagram }}" target="_blank">{% include ['components/icon-instagram.twig'] %}&commat;{{ options.instagram }}</a></p>
+          </div>
+        </div>
+
+        <div class="newsletter">
+          <h4>Subscribe</h4>
+          <p>{{ options.bottom_text }}</p>
+          {% filter shortcodes %}
+            [mc4wp_form id="95"]
+          {% endfilter %}
+        </div>
+      </div>
+
+      <div class="half">
+        {% filter shortcodes %}
+          [caldera_form id="CF5d73fb3689b89"]
+        {% endfilter %}
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
