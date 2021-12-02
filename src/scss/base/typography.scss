@@ -1,37 +1,3 @@
-/* FONTS */
-
-@font-face {
-  font-family: 'range';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../assets/fonts/RangeMono.woff2') format('woff2'),
-    url('../../assets/fonts/RangeMono.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'canela';
-  font-style: normal;
-  font-weight: 200;
-  src: url('../../assets/fonts/CanelaThin.woff2') format('woff2'),
-    url('../../assets/fonts/CanelaThin.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'leitura';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../assets/fonts/LeituraNews-Roman1.woff2') format('woff2'),
-    url('../../assets/fonts/LeituraNews-Roman1.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'nimbus';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../assets/fonts/NimbusSanL-Reg.woff.woff2') format('woff2'),
-    url('../../assets/fonts/NimbusSanL-Reg.woff.woff') format('woff');
-}
-
 html {
   font-size: 10px;
 }
@@ -39,25 +5,11 @@ html {
 body {
   color: $color_text;
   font-family: $font_main;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.5;
 }
-
-// h1,
-// .h1,
-// h2,
-// .h2,
-// h3,
-// .h3,
-// h4,
-// .h4,
-// h5,
-// .h5,
-// h6,
-// .h6 {
-// }
 
 h1,
 .h1 {

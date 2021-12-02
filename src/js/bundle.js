@@ -7,11 +7,9 @@ $(document).ready(function() {
   var map = null;
 
   // title page fade
-
   $('.titlefade').delay(1250).fadeOut(2500);
 
   // slide toggle
-
   $('.hidden').hide();
 
   function closeNav() {
@@ -38,7 +36,6 @@ $(document).ready(function() {
   });
 
   // mobile menu
-
   $('.mm-trigger').on('click', function() {
     $(".mm-overlay").fadeToggle(ANIMATE_TIME);
   });
@@ -48,37 +45,34 @@ $(document).ready(function() {
   });
 
   // init slick
-
-  const siteURL = WPURLS.siteurl;
-  const prevArrow = `
-  <button class="slick-prev" aria-label="Next Slide">
-    <img src="${siteURL}/wp-content/themes/wolff-co/assets/images/arrow-left_spice.png"/ alt="Next Arrow">
-  </button>`;
-  const nextArrow = `
-  <button class="slick-next" aria-label="Previous Slide">
-    <img src="${siteURL}/wp-content/themes/wolff-co/assets/images/arrow-right_spice.png"/ alt="Previous Arrow">
-  </button>`;
-
-  const $workSlider = $('.work-slider');
-
-  const workSettings = {
-    dots: false,
-    arrows: true,
-    autoplay: false,
-    prevArrow,
-    nextArrow
-  };
-
-  $workSlider.slick(workSettings);
+  // const siteURL = WPURLS.siteurl;
+  // const prevArrow = `
+  // <button class="slick-prev" aria-label="Next Slide">
+  //   <img src="${siteURL}/wp-content/themes/wolff-co/assets/images/arrow-left_spice.png"/ alt="Next Arrow">
+  // </button>`;
+  // const nextArrow = `
+  // <button class="slick-next" aria-label="Previous Slide">
+  //   <img src="${siteURL}/wp-content/themes/wolff-co/assets/images/arrow-right_spice.png"/ alt="Previous Arrow">
+  // </button>`;
+  //
+  // const $workSlider = $('.work-slider');
+  //
+  // const workSettings = {
+  //   dots: false,
+  //   arrows: true,
+  //   autoplay: false,
+  //   prevArrow,
+  //   nextArrow
+  // };
+  //
+  // $workSlider.slick(workSettings);
 
   // Google maps
-
   $('.acf-map').each(function(){
-		map = new_map( $(this) );
+		var map = initMap( $(this) );
 	});
 
-  function new_map( $el ) {
-
+  function initMap( $el ) {
   	var $markers = $el.find('.marker');
 
     var args = {
@@ -97,25 +91,29 @@ $(document).ready(function() {
   	var map = new google.maps.Map( $el[0], args);
 
   	map.markers = [];
-
   	$markers.each(function(){
-      	add_marker( $(this), map );
+      	initMarker( $(this), map );
   	});
 
-  	center_map( map );
+  	centerMap( map );
 
   	return map;
   }
 
-  function add_marker( $marker, map ) {
+  function initMarker( $marker, map ) {
 
-  	var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+    var lat = $marker.data('lat');
+    var lng = $marker.data('lng');
+    var latLng = {
+        lat: parseFloat( lat ),
+        lng: parseFloat( lng )
+    };
 
   	var marker = new google.maps.Marker({
-  		position	: latlng,
-  		map			: map,
+      position : latLng,
+      map: map,
       icon: {
-        url: "http://localhost:3000/wp-content/themes/wolff-co/assets/images/map.png"
+        url: "http://localhost:3000/wp-content/themes/wolff-house/assets/images/map.png"
       }
   	});
 
@@ -123,34 +121,31 @@ $(document).ready(function() {
 
   	if( $marker.html() )
   	{
-  		var infowindow = new google.maps.InfoWindow({
-  			content		: $marker.html()
-  		});
+      var infowindow = new google.maps.InfoWindow({
+          content: $marker.html()
+      });
 
-  		google.maps.event.addListener(marker, 'click', function() {
-  			infowindow.open( map, marker );
-  		});
+      google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open( map, marker );
+      });
   	}
   }
 
-  function center_map( map ) {
+  function centerMap( map ) {
+    var bounds = new google.maps.LatLngBounds();
+    map.markers.forEach(function( marker ){
+        bounds.extend({
+            lat: marker.position.lat(),
+            lng: marker.position.lng()
+        });
+    });
 
-  	var bounds = new google.maps.LatLngBounds();
+    if( map.markers.length == 1 ){
+        map.setCenter( bounds.getCenter() );
 
-  	$.each( map.markers, function( i, marker ){
-  		var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
-  		bounds.extend( latlng );
-  	});
-
-  	if( map.markers.length == 1 )
-  	{
-  	    map.setCenter( bounds.getCenter() );
-  	    map.setZoom( 16 );
-  	}
-  	else
-  	{
-  		map.fitBounds( bounds );
-  	}
+    } else{
+        map.fitBounds( bounds );
+    }
   }
 
 });

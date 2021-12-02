@@ -20,7 +20,7 @@
     </section>
 
     <section class="home-three">
-      <div class="flex-between">
+      <div class="flex-between-center">
         <div class="column">
           <h2>{{ post.meta('home_heading1') }}</h2>
           <div class="rte">{{ post.meta('home_text1') }}</div>
@@ -33,7 +33,7 @@
     </section>
 
     <section class="home-four">
-      <div class="flex-between">
+      <div class="flex-between-center">
         <div class="column">
           <img src="{{ Image(post.meta('home_image2')).src | resize(1250, 2000, true) }}" />
         </div>

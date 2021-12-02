@@ -53,11 +53,7 @@ header,
     }
 
     a {
-      color: rgba(249,249,249,0.6);
-
-      &:hover {
-        color: $smoke;
-      }
+      color: $smoke;
     }
   }
 

@@ -1,12 +1,12 @@
 {
-  "name": "mikewalker24/kindred",
-  "description": "An opinionated starter theme for WordPress, based on Timber Starter Tacklebox",
+  "name": "wolff-house",
+  "description": "A custom theme for Wolff House by Kindred Studio",
   "type": "wordpress-theme",
   "minimum-stability": "stable",
   "authors": [
     {
-      "email": "hello@mikewalker.co",
-      "name": "mikewalker"
+      "email": "dev@kindredstudio.ca",
+      "name": "kindredstudio"
     }
   ],
   "repositories": [

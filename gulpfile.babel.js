@@ -15,7 +15,7 @@ import replace from 'gulp-replace';
 import yargs from 'yargs';
 
 const config = {
-  domain: 'kindred.local',
+  domain: 'wolff-house.local',
   browserList: ['> 0.2%', 'not dead'],
 };
 

@@ -1,0 +1,42 @@
+// past work
+.project-info {
+  padding: 5%;
+  text-align: center;
+
+  p {
+    max-width: 500px;
+    width: 90%;
+    margin: 4rem auto;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.project-gallery {
+  .portrait {
+
+    .column {
+      flex-basis: 48.5%;
+    }
+
+    @include media-query($tablet-sm) {
+      flex-direction: column;
+
+      .column:first-of-type {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .portrait,
+  .landscape {
+    margin-bottom: 4.5rem;
+
+    @include media-query($laptop-lg) {
+      margin-bottom: 2rem;
+    }
+  }
+}

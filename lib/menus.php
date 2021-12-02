@@ -8,6 +8,6 @@
 
 // Register your menus here.
 register_nav_menus([
-  'primaryNav' => 'Primary Nav',
-  'footerNav' => 'Footer Nav',
+  'primary' => 'Primary Menu',
+  'footer' => 'Footer Menu',
 ]);
