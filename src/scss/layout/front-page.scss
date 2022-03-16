@@ -75,7 +75,7 @@
   }
 
   @include media-query($tablet-lg) {
-    .flex-between {
+    .flex-between-center {
       flex-direction: column-reverse;
     }
   }
@@ -91,7 +91,7 @@
   }
 
   @include media-query($tablet-lg) {
-    .flex-between {
+    .flex-between-center {
       flex-direction: column;
     }
   }

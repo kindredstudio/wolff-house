@@ -18,7 +18,7 @@
     right: 0;
     width: 40%;
     height: 100%;
-    padding: 9rem 5% 0;
+    padding: 8rem 5% 0;
     background-color: #fff;
     overflow-y: auto;
 
@@ -40,6 +40,10 @@
       position: static;
       padding: 6rem 10%;
     }
+
+    @include media-query($mobile-lg) {
+      padding: 4rem 10%;
+    }
   }
 
   @include media-query($tablet-sm) {
@@ -55,11 +59,12 @@
 }
 
 .contact-two {
-  padding: 5% 10%;
+  max-width: 1300px;
+  margin: 4rem auto;
 
   .half {
     flex-basis: 60%;
-    padding: 3% 5%;
+    padding: 4rem 5%;
 
     &:first-of-type {
       flex-basis: 40%;
@@ -95,11 +100,18 @@
 
     @include media-query($laptop-sm) {
       width: 100%;
-      padding: 3rem 5%;
+      padding: 0;
+      margin-bottom: 4rem;
+
+      &:first-of-type {
+        padding-top: 4rem;
+      }
     }
   }
 
   @include media-query($laptop-sm) {
+    width: 90%;
+
     .flex-between {
       flex-direction: column-reverse;
     }

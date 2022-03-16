@@ -13,83 +13,80 @@
   </section>
 
   <section class="investors-three">
-    <div class="wrap">
+    <div class="table">
+      <h1>Completed Projects</h1>
 
-      <div class="table">
-        <h1>Completed Projects</h1>
+      <table border="0">
+        <thead>
+          <tr>
+            <th class="xl h4">Address</th>
+            <th class="lg h4">Timeframe</th>
+            <th class="md h4">Cost</th>
+            <th class="md h4">Sale Price</th>
+            <th class="sm h4">ROI</th>
+            <th class="sm h4">Annualized Investor ROI</th>
+          </tr>
+        </thead>
 
-        <table border="0">
-          <thead>
+        <tbody>
+          {% for item in post.meta('investors_table') %}
             <tr>
-              <th class="xl h4">Address</th>
-              <th class="lg h4">Timeframe</th>
-              <th class="md h4">Cost</th>
-              <th class="md h4">Sale Price</th>
-              <th class="sm h4">ROI</th>
-              <th class="sm h4">Annualized Investor ROI</th>
+              <td class="xl">
+                {% if item.pdf %}
+                  <a href="{{ item.pdf }}" target="_blank">{{ item.address }}</a>
+
+                {% else %}
+                  {{ item.address }}
+
+                {% endif %}
+              </td>
+              <td class="lg">{{ item.timeframe }}</td>
+              <td class="md">{{ item.cost }}</td>
+              <td class="md">{{ item.price }}</td>
+              <td class="sm">{{ item.roi }}</td>
+              <td class="sm">{{ item.investor_roi }}</td>
             </tr>
-          </thead>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
 
-          <tbody>
-            {% for item in post.meta('investors_table') %}
-              <tr>
-                <td class="xl">
-                  {% if item.pdf %}
-                    <a href="{{ item.pdf }}" target="_blank">{{ item.address }}</a>
+    <div class="table">
+      <h1>Currently Under Construction</h1>
 
-                  {% else %}
-                    {{ item.address }}
+      <table border="0">
+        <thead>
+          <tr>
+            <th class="xl h4">Address</th>
+            <th class="lg h4">Projected Timeframe</th>
+            <th class="md h4">Projected Cost</th>
+            <th class="md h4">Projected Sale Price</th>
+            <th class="sm h4">Projected ROI</th>
+            <th class="sm h4">Projected Annualized Investor ROI</th>
+          </tr>
+        </thead>
 
-                  {% endif %}
-                </td>
-                <td class="lg">{{ item.timeframe }}</td>
-                <td class="md">{{ item.cost }}</td>
-                <td class="md">{{ item.price }}</td>
-                <td class="sm">{{ item.roi }}</td>
-                <td class="sm">{{ item.investor_roi }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="table">
-        <h1>Currently Under Construction</h1>
-
-        <table border="0">
-          <thead>
+        <tbody>
+          {% for item in post.meta('construction_table') %}
             <tr>
-              <th class="xl h4">Address</th>
-              <th class="lg h4">Projected Timeframe</th>
-              <th class="md h4">Projected Cost</th>
-              <th class="md h4">Projected Sale Price</th>
-              <th class="sm h4">Projected ROI</th>
-              <th class="sm h4">Projected Annualized Investor ROI</th>
+              <td class="xl">
+                {% if item.pdf %}
+                  <a href="{{ item.pdf }}" target="_blank">{{ item.address }}</a>
+
+                {% else %}
+                  {{ item.address }}
+
+                {% endif %}
+              </td>
+              <td class="lg">{{ item.timeframe }}</td>
+              <td class="md">{{ item.cost }}</td>
+              <td class="md">{{ item.price }}</td>
+              <td class="sm">{{ item.roi }}</td>
+              <td class="sm">{{ item.investor_roi }}</td>
             </tr>
-          </thead>
-
-          <tbody>
-            {% for item in post.meta('construction_table') %}
-              <tr>
-                <td class="xl">
-                  {% if item.pdf %}
-                    <a href="{{ item.pdf }}" target="_blank">{{ item.address }}</a>
-
-                  {% else %}
-                    {{ item.address }}
-                    
-                  {% endif %}
-                </td>
-                <td class="lg">{{ item.timeframe }}</td>
-                <td class="md">{{ item.cost }}</td>
-                <td class="md">{{ item.price }}</td>
-                <td class="sm">{{ item.roi }}</td>
-                <td class="sm">{{ item.investor_roi }}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
   </section>
 

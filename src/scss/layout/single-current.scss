@@ -51,6 +51,10 @@
         list-style: disc;
         list-style-position: inside;
       }
+
+      @include media-query($tablet-sm) {
+        margin: 4rem 0 1rem;
+      }
     }
 
     @include media-query($tablet-lg) {

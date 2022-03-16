@@ -31,6 +31,10 @@
       color: $spice;
     }
   }
+
+  @include media-query($tablet-sm) {
+    font-size: 1.1rem;
+  }
 }
 
 .read-more {

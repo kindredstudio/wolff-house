@@ -46,9 +46,8 @@
             <p><a href="http://instagram.com/{{ options.instagram }}" target="_blank">{% include ['components/icon-instagram.twig'] %}&commat;{{ options.instagram }}</a></p>
           </div>
 
-          <h5>&copy; {{ "now" | date('Y') }} Wolff Co.</h5>
-          <h5>Site design by <a href="http://rhysco.com/" target="_blank">Rhys &plus; Co</a></h5>
-          <h5>Development by <a href="http://kindredstudio.ca" target="_blank">Kindred Studio</a></h5>
+          <h5>&copy; {{ "now" | date('Y') }} {{ site.title }}</h5>
+            <h5>Site by <a href="http://kindredstudio.ca" target="_blank">Kindred Studio</a></h5>
         </div>
 
     </div> <!-- end .mm-inner -->

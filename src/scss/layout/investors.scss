@@ -1,7 +1,8 @@
 /* INVESTORS PAGE */
 
 .investors-two {
-  padding: 5%;
+  width: 90%;
+  margin: 6rem auto;
 
   h2 {
     margin-bottom: 3rem;
@@ -9,14 +10,18 @@
 }
 
 .investors-three {
-  padding: 10%;
+  width: 90%;
+  margin: 6rem auto;
   background-color: #fff;
+  overflow-x: scroll;
 
   h1 {
     margin-bottom: 1rem;
   }
 
   .table {
+    min-width: 900px;
+
     &:first-of-type {
       margin-bottom: 8rem;
     }
@@ -27,8 +32,13 @@
     border-collapse: collapse;
 
     tr {
-      @include flex-between;
+      display: grid;
+      align-items: center;
       border-bottom: 1px solid $black;
+      grid-auto-columns: minmax(0, 1fr);
+      grid-auto-flow: column;
+      grid-gap: 1rem;
+      grid-template-rows: 1fr;
     }
 
     th,
