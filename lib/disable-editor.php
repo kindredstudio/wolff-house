@@ -6,11 +6,14 @@
 function kindred_disable_editor($id = false)
 {
     $excluded_templates = [
-    // 'contact.php'
+    'page-contact.php',
+    'page-investors.php',
+    'page-casita.php',
+    'page-about.php'
   ];
 
     $excluded_ids = [
-    // get_option( 'page_on_front' )
+    get_option( 'page_on_front' )
   ];
 
     if (empty($id)) {

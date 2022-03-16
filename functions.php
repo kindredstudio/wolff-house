@@ -179,6 +179,8 @@ if (function_exists('acf_add_options_page')) {
 // Editor changes
 require_once 'lib/blocks.php';
 
+require_once 'lib/disable-editor.php';
+
 require_once 'lib/login.php';
 
 // Create Gutenberg blocks based on configuration in twig files in views/blocks
