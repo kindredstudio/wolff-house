@@ -24,7 +24,7 @@
         <div class="column">
           <h2>{{ post.meta('home_heading1') }}</h2>
           <div class="rte">{{ post.meta('home_text1') }}</div>
-          <a href="{{ site.url }}/past-projects/" class="button button-primary">Past Work</a>
+          <a href="{{ post.meta('home_link1') }}" class="button button-primary">{{ post.meta('home_btn1') }}</a>
         </div>
         <div class="column">
           <img src="{{ Image(post.meta('home_image1')).src | resize(1250, 2000, true) }}" />
@@ -40,7 +40,7 @@
         <div class="column">
           <h2>{{ post.meta('home_heading2') }}</h2>
           <div class="rte">{{ post.meta('home_text2') }}</div>
-          <a href="{{ site.url }}/current-projects/" class="button button-primary">In the Works</a>
+          <a href="{{ post.meta('home_link2') }}" class="button button-primary">{{ post.meta('home_btn2') }}</a>
         </div>
       </div>
     </section>

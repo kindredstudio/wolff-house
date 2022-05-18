@@ -12,4 +12,9 @@
 $context = Timber::context();
 $post = new TimberPost();
 $context['post'] = $post;
-Timber::render(['page-investors.twig', 'page.twig'], $context);
+
+if ( post_password_required( $post->ID ) ) :
+    Timber::render( 'single-password.twig', $context );
+else :
+    Timber::render(['page-investors.twig', 'page.twig'], $context);
+endif;

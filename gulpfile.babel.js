@@ -1,41 +1,44 @@
-import { src, dest, watch, series, parallel } from 'gulp';
-import browserSync from 'browser-sync';
-import webpack from 'webpack-stream';
-import postCss from 'gulp-postcss';
-import sass from 'gulp-sass';
-import autoprefixer from 'autoprefixer';
-import cleanCss from 'gulp-clean-css';
-import gulpif from 'gulp-if';
-import sourcemaps from 'gulp-sourcemaps';
-import del from 'del';
-import named from 'vinyl-named';
-import zip from 'gulp-zip';
-import info from './package.json';
-import replace from 'gulp-replace';
-import yargs from 'yargs';
+import { src, dest, watch, series, parallel } from 'gulp'
+import browserSync from 'browser-sync'
+import webpack from 'webpack-stream'
+import postCss from 'gulp-postcss'
+import gulpSass from 'gulp-sass'
+import dartSass from 'sass'
+import autoprefixer from 'autoprefixer'
+import cleanCss from 'gulp-clean-css'
+import gulpif from 'gulp-if'
+import sourcemaps from 'gulp-sourcemaps'
+import del from 'del'
+import named from 'vinyl-named'
+import zip from 'gulp-zip'
+import info from './package.json'
+import replace from 'gulp-replace'
+import yargs from 'yargs'
 
-const config = {
-  domain: 'wolff-house.local',
-  browserList: ['> 0.2%', 'not dead'],
-};
+const sass = gulpSass(dartSass)
 
-const IS_PRODUCTION = !!yargs.argv.prod;
+const IS_PRODUCTION = !!yargs.argv.prod
 
-const server = browserSync.create();
+const proxy = 'wolff-house.local'
+const port = 8080
+const browserList = ['> 0.2%', 'not dead']
 
-const sync = (done) => {
+const server = browserSync.create()
+
+const sync = done => {
   server.init({
-    proxy: config.domain,
-  });
-  done();
-};
+    proxy,
+    port,
+  })
+  done()
+}
 
-const reload = (done) => {
-  server.reload();
-  done();
-};
+const reload = done => {
+  server.reload()
+  done()
+}
 
-const clean = () => del(['dist']);
+const clean = () => del(['dist'])
 
 const styles = () => {
   return src(['src/scss/bundle.scss', 'src/scss/admin.scss'])
@@ -46,7 +49,7 @@ const styles = () => {
         IS_PRODUCTION,
         postCss([
           autoprefixer({
-            browserList: config.browserList,
+            browserList,
           }),
         ])
       )
@@ -54,15 +57,15 @@ const styles = () => {
     .pipe(gulpif(IS_PRODUCTION, cleanCss()))
     .pipe(gulpif(!IS_PRODUCTION, sourcemaps.write()))
     .pipe(dest('dist'))
-    .pipe(server.stream());
-};
+    .pipe(server.stream())
+}
 
 const copy = () => {
-  return src(['src/**/*', '!src/{js,scss}', '!src/{js,scss}/**/*']).pipe(dest('dist'));
-};
+  return src(['src/**/*', '!src/{js,scss}', '!src/{js,scss}/**/*']).pipe(dest('dist'))
+}
 
 const scripts = () => {
-  return src(['src/js/bundle.js'])
+  return src(['src/js/bundle.js', 'src/js/admin.js'])
     .pipe(named())
     .pipe(
       webpack({
@@ -91,8 +94,8 @@ const scripts = () => {
         },
       })
     )
-    .pipe(dest('dist'));
-};
+    .pipe(dest('dist'))
+}
 
 // const images = () => {
 //   return src('src/img/**/*')
@@ -116,22 +119,22 @@ const compress = () => {
     '!package.json',
     '!package-lock.json',
   ])
-    .pipe(gulpif((file) => file.relative.split('.').pop() !== 'zip', replace('_kindred', info.name)))
+    .pipe(gulpif(file => file.relative.split('.').pop() !== 'zip', replace('_banana', info.name)))
     .pipe(zip(`${info.name}.zip`))
-    .pipe(dest('bundled'));
-};
+    .pipe(dest('bundled'))
+}
 
 const watchForChanges = () => {
-  watch('src/scss/**/*.scss', styles);
-  watch(['src/**/*', '!src/{img,js,scss}', '!src/{img,js,scss}/**/*'], series(copy, reload));
-  watch('src/js/**/*.js', series(scripts, reload));
-  watch('**/*.php', reload);
-  watch('views/**/*.twig', reload);
-};
+  watch('src/scss/**/*.scss', styles)
+  watch(['src/**/*', '!src/{img,js,scss}', '!src/{img,js,scss}/**/*'], series(copy, reload))
+  watch('src/js/**/*.js', series(scripts, reload))
+  watch('**/*.php', reload)
+  watch('views/**/*.twig', reload)
+}
 
-const dev = series(clean, parallel(styles, scripts, copy), sync, watchForChanges);
+const dev = series(clean, parallel(styles, scripts, copy), sync, watchForChanges)
 
-export const build = series(clean, parallel(styles, scripts, copy));
-export const bundle = series(clean, parallel(styles, scripts, copy), compress);
+export const build = series(clean, parallel(styles, scripts, copy))
+export const bundle = series(clean, parallel(styles, scripts, copy), compress)
 
-export default dev;
+export default dev
