@@ -1,0 +1,16 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+  <article class="page-services">
+    {% include "landing.twig" with {
+      fields: {
+        heading: post.get_field('services_heading'),
+        text: post.get_field('services_text'),
+        button: post.get_field('services_button'),
+        image: post.get_field('services_image')
+      }
+    }%}
+  </article>
+
+{% endblock %}

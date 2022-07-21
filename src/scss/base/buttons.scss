@@ -32,6 +32,18 @@
     }
   }
 
+  &-reverse {
+    border: 1px solid $smoke;
+    margin-top: 5rem;
+    background: $smoke;
+    color: $spice;
+
+    &:hover {
+      background: transparent;
+      color: $smoke;
+    }
+  }
+
   @include media-query($tablet-sm) {
     font-size: 1.1rem;
   }

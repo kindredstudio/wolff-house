@@ -1,0 +1,57 @@
+.c-about-banner {
+  position: relative;
+  padding-bottom: 6rem;
+  background-color: $smoke;
+
+  &__content {
+    max-width: 800px;
+    width: 60%;
+    margin-top: 6rem;
+    margin-left: 6rem;
+
+    h1 {
+      margin: 2rem 0 4rem;
+      font-family: $font_third;
+      font-size: 3.6rem;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-family: $font_fourth;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @include media-query($mobile-lg) {
+      width: 90%;
+      margin: 4rem auto 0;
+    }
+  }
+
+  .stamp {
+    position: absolute;
+    bottom: -4rem;
+    right: 5rem;
+    width: 180px;
+
+    @include media-query($tablet-lg) {
+      bottom: -3rem;
+      right: 3rem;
+      width: 140px;
+    }
+
+    @include media-query($mobile-lg) {
+      display: none;
+    }
+  }
+
+  @include media-query($mobile-lg) {
+    padding-bottom: 4rem;
+  }
+}
+
+.page-template-page-about .site-footer {
+  display: none;
+}

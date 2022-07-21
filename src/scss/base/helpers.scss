@@ -92,6 +92,20 @@
   @include flex-center-column;
 }
 
+// grid
+.grid {
+  display: grid;
+
+  &-2c {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 6%;
+
+    @include media-query($tablet-sm) {
+      grid-gap: 4rem;
+    }
+  }
+}
+
 // ACF map
 .acf-map {
   width: 100%;

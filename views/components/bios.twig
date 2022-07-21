@@ -1,0 +1,13 @@
+<section class="c-bios">
+  <div class="c-bios__container grid grid-2c">
+    {% for item in fields.bios %}
+      <div class="c-bios__block">
+        <h3>{{ item.name }}</h3>
+        <h2>{{ item.title }}</h2>
+        <div class="rte">
+          {{ item.text }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

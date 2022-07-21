@@ -2,43 +2,19 @@
 
 {% block content %}
 
-  <section class="about-one">
-    <div class="flex-between">
-      <div class="rte">
-        {{ post.meta('about_text') }}
-      </div>
-      <img class="logo" src="{{theme.link}}/assets/images/logo-about.png" alt="logo">
-    </div>
-  </section>
-
-  <section class="about-two">
-    <img src="{{ Image(post.meta('about_image')).src }}" />
-  </section>
-
-  <section class="about-three">
-    <div class="flex-between">
-      <div class="column">
-        <h2>{{ post.meta('bio_heading1') }}</h2>
-        <h4>{{ post.meta('bio_title1') }}</h4>
-        <div class="rte">{{ post.meta('bio_text1') }}</div>
-      </div>
-      <div class="column">
-        <img src="{{ Image(post.meta('bio_image1')).src | resize(1250, 2000, true) }}" />
-      </div>
-    </div>
-  </section>
-
-  <section class="about-four">
-    <div class="flex-between">
-      <div class="column">
-        <img src="{{ Image(post.meta('bio_image2')).src | resize(1250, 2000, true) }}" />
-      </div>
-      <div class="column">
-        <h2>{{ post.meta('bio_heading2') }}</h2>
-        <h4>{{ post.meta('bio_title2') }}</h4>
-        <div class="rte">{{ post.meta('bio_text2') }}</div>
-      </div>
-    </div>
-  </section>
+  <article class="page-about">
+    {% include "about-banner.twig" with {
+      fields: {
+        image: post.get_field('about1_image'),
+				heading: post.get_field('about1_heading'),
+				text: post.get_field('about1_text')
+      }
+    }%}
+    {% include "bios.twig" with {
+      fields: {
+				bios: post.get_field('about2_bio')
+      }
+    }%}
+  </article>
 
 {% endblock %}

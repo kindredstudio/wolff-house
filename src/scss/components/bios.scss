@@ -1,0 +1,50 @@
+.c-bios {
+  padding: 6rem 0;
+  background-color: $stone;
+
+  &__container {
+    width: 90%;
+    margin: 0 auto;
+
+    @include media-query($tablet-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__block {
+    padding: 3rem 0;
+
+    &:first-of-type {
+      padding-right: 12%;
+      border-right: 1px solid $black;
+
+      @include media-query($tablet-sm) {
+        padding-right: 0;
+        padding-bottom: 4rem;
+        border-right: none;
+        border-bottom: 1px solid $black;
+      }
+    }
+
+    h3,
+    h2 {
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      margin: 1rem auto 3rem;
+      font-family: $font_fourth;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    @include media-query($tablet-sm) {
+      padding: 0;
+    }
+  }
+}

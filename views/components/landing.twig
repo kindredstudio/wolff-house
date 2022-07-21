@@ -1,0 +1,11 @@
+{% set image = Image(fields.image) %}
+
+<section class="s-landing section-wrap" style="background:linear-gradient(rgba(121, 110, 101, 0.75), rgba(121, 110, 101, 0.75)),url({{ image.src }}) no-repeat center center;">
+  <div class="flex-center-column">
+    <h1>{{ fields.heading }}</h1>
+    <p>{{ fields.text }}</p>
+    {% if fields.button.url %}
+        <a href="{{ fields.button.url }}" {{ item.button.target == "_blank" ? 'target="_blank" rel="noopener noreferrer"' }} class="button button-reverse">{{ fields.button.title }}</a>
+      {% endif %}
+  </div>
+</section>

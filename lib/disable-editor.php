@@ -9,7 +9,8 @@ function kindred_disable_editor($id = false)
     'page-contact.php',
     'page-investors.php',
     'page-casita.php',
-    'page-about.php'
+    'page-about.php',
+    'page-services.php'
   ];
 
     $excluded_ids = [

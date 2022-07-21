@@ -1,0 +1,14 @@
+<section class="c-about-banner">
+  {% set image = Image(fields.image) %}
+	<img src='{{ image.src }}' alt='{{ image.title }}'>
+
+  <div class="c-about-banner__content">
+    <h2>About Us</h2>
+    <h1>{{ fields.heading }}</h1>
+    <div class="rte">{{ fields.text }}</h1></div>
+  </div>
+
+  <div class="stamp">
+    <img src="{{theme.link}}/assets/images/logo-stamp.png" alt="">
+  </div>
+</section>
