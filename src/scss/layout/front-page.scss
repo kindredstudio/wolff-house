@@ -19,8 +19,14 @@
 
 .home-two {
   @include flex-center;
+  padding: 10rem 0 12rem;
   background: $stone;
   text-align: center;
+
+  .inner-wrap {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 
   .monogram {
     max-width: 205px;
@@ -34,12 +40,15 @@
   }
 
   @include media-query($mobile-lg) {
+    padding: 4rem 3rem 5rem;
+
     .monogram {
-      max-width: 150px;
+      max-width: 130px;
+      margin-bottom: 3rem;
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   }
 }

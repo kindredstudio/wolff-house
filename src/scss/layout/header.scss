@@ -88,10 +88,10 @@ header,
 .mobile-header,
 .mm-overlay {
   h1 {
-    .monogram {
-      max-width: 25px;
-      margin-bottom: 1.5rem;
-    }
+    // .monogram {
+    //   max-width: 25px;
+    //   margin-bottom: 1.5rem;
+    // }
 
     .site-logo {
       max-width: 125px;
@@ -102,7 +102,7 @@ header,
 
 .mobile-header {
   display: none;
-  padding: 3.5rem 4.25rem;
+  padding: 2.5rem 4.25rem;
   background: $spice;
   text-align: center;
 
